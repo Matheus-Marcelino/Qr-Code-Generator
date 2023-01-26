@@ -30,7 +30,10 @@ class App(object):
             showerror('Pasta de imagens não encontrada',
                       'A pasta "buttons" não foi encontrada ou arquivo não encontrado,\n'
                       'porfavor restaure ela!')
-            self.__WINDOW.destroy()
+            try:
+                self.__WINDOW.destroy()
+            except TclError:
+                pass
         self.__WINDOW.mainloop()
 
     def __screen_settings(self) -> None:
@@ -165,3 +168,7 @@ class App(object):
                          lambda e: on_leave(button_copy,
                                             image=self.__WINDOW.button_copy_normal,
                                             x=205, y=180))
+
+
+if __name__ == '__main__':
+    App()
