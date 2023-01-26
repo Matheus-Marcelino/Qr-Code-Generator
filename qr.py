@@ -15,7 +15,7 @@ def creat_qrcode(text: str, check: int) -> None:
 
     im = qr.make_image()
     try:
-        im.save(f'output/placa-{text}.png')
+        im.save(f'output/{text}.png')
         if check == 1:
             im.show()  # mostra o Qr code na tela
     except FileNotFoundError:
