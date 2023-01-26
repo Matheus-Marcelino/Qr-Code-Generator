@@ -110,3 +110,12 @@ class App(object):
         self.__title = Label(self.__WINDOW, text='Gerador de Qr Code', fg='white',
                              bg=self.__COLOR_BASIC, font=f'{self.__FONT_BASIC} 15 bold')
         self.__title.place(x=160, y=50)
+
+                # configuração da entrada de texto
+        self.__text_entry = Entry(self.__WINDOW, bg='white',
+                                  fg='black', width=50)
+        self.__text_entry.place(x=100, y=150)
+
+        self.__text_verify = Entry(self.__WINDOW, bg='white',
+                                   fg='black', width=50)
+        self.__text_verify.place(x=100, y=220)
