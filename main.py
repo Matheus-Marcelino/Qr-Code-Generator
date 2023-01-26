@@ -93,7 +93,15 @@ class App(object):
             self.__WINDOW.button_copy_normal = ImageTk.PhotoImage(Image.open(
                 f'{self.__path_image}' + '/button_copy_normal.png'))
 
-        def transfer_text() -> None:
+        def transfer_text() -> None:  # Copia o texto da entry 1 para entry verify
             data: str = self.__text_entry.get()
             self.__text_verify.delete(0, END)
             self.__text_verify.insert(END, data)
+
+        def on_enter(button: Button, image: any, x: int, y: int) -> None:
+            button.config(image=image)
+            button.place(x=x, y=y)
+
+        def on_leave(button: Button, image: any, x: int, y: int) -> None:
+            button.config(image=image)
+            button.place(x=x, y=y)
