@@ -7,6 +7,7 @@ from tkinter.messagebox import showerror
 
 
 class App(object):
+    """Classe principal"""
     def __init__(self) -> None:
         self.__file_main: str = dirname(realpath(__file__))
         self.__path_image: str = self.__file_main + '/buttons'
@@ -54,7 +55,13 @@ class App(object):
                            PhotoImage(file='icon/qr.png'))
 
     def __verify(self) -> None:
+        """Faz uma série de verificações para criar o Qr Code"""
         def upload_image(image: str) -> None:
+            """Carrega Imagens
+
+            Args:
+                image (str): Indique o nome da imagem
+            """
             self.__WINDOW.button_image = ImageTk.PhotoImage(
                 Image.open(f'{self.__path_image}' + f'/ {image}'.replace(' ', ''))) # Carrega a imagem desejada
             if image == 'sucesso.png':
@@ -65,6 +72,8 @@ class App(object):
                 self.__button_verify.place(x=198, y=298)
 
         def clear_entry() -> None:
+            """Limpa as Entry
+            """
             self.__text_entry.delete(0, END)
             self.__text_verify.delete(0, END)
 
@@ -84,6 +93,7 @@ class App(object):
 
     def __object_screen(self) -> None:
         def configurate_image() -> None:
+            """Carrega as imagens"""
             self.__WINDOW.button_verify_image_lower = ImageTk.PhotoImage(Image.open(
                 f"{self.__path_image}" + "/verify.png".replace(' ', '')))
 
@@ -97,15 +107,32 @@ class App(object):
                 f'{self.__path_image}' + '/button_copy_normal.png'))
 
         def transfer_text() -> None:  # Copia o texto da entry 1 para entry verify
+            """Copia o texto"""
             data: str = self.__text_entry.get()
             self.__text_verify.delete(0, END)
             self.__text_verify.insert(END, data)
 
         def on_enter(button: Button, image: any, x: int, y: int) -> None:
+            """On Hover
+
+            Args:
+                button (Button): Variavel do botão
+                image (any): Imagem para o botão
+                x (int): posição X da tela
+                y (int): posição Y da tela
+            """
             button.config(image=image)
             button.place(x=x, y=y)
 
         def on_leave(button: Button, image: any, x: int, y: int) -> None:
+            """On Leave Hover
+
+            Args:
+                button (Button): Variavel do botão
+                image (any): Imagem para o botão
+                x (int): posição X da tela
+                y (int): posição Y da tela
+            """
             button.config(image=image)
             button.place(x=x, y=y)
 
