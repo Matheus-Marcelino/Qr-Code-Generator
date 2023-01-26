@@ -157,3 +157,11 @@ class App(object):
                                                      image=self.__WINDOW.button_verify_image_lower,
                                                      x=200, y=300))
 
+        button_copy.bind('<Enter>',
+                         lambda e: on_enter(button_copy,
+                                            image=self.__WINDOW.button_copy_upper,
+                                            x=203, y=178))
+        button_copy.bind('<Leave>',
+                         lambda e: on_leave(button_copy,
+                                            image=self.__WINDOW.button_copy_normal,
+                                            x=205, y=180))
