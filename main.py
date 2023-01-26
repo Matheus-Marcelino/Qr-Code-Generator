@@ -141,3 +141,19 @@ class App(object):
                              bg=self.__COLOR_BASIC, activebackground=self.__COLOR_BASIC,
                              bd=0, relief=SUNKEN, command=transfer_text)
         button_copy.place(x=205, y=180)
+
+        # configuração do botão
+        self.__button_verify = Button(self.__WINDOW, image=self.__WINDOW.button_verify_image_lower,
+                                      bg=self.__COLOR_BASIC, activebackground=self.__COLOR_BASIC,
+                                      command=self.__verify, bd=0, relief=SUNKEN)
+        self.__button_verify.place(x=200, y=300)
+
+        self.__button_verify.bind('<Enter>',
+                                  lambda e: on_enter(self.__button_verify,
+                                                     image=self.__WINDOW.button_verify_image_upper,
+                                                     x=198, y=298))
+        self.__button_verify.bind('<Leave>',
+                                  lambda e: on_leave(self.__button_verify,
+                                                     image=self.__WINDOW.button_verify_image_lower,
+                                                     x=200, y=300))
+
