@@ -60,9 +60,20 @@ class App(object):
             else:
                 self.__title['fg'] = 'red'
                 self.__button_verify.place(x=198, y=298)
-        
+
         def clear_entry() -> None:
             self.__text_entry.delete(0, END)
             self.__text_verify.delete(0, END)
-            
-            
+
+        data_entry_1: str = self.__text_entry.get()
+        data_entry_verify: str = self.__text_verify.get()
+
+        if data_entry_verify == data_entry_1 and data_entry_verify != '':
+            upload_image('sucesso.png')
+            self.__button_verify.configure(image=self.__WINDOW.button_image)
+            creat_qrcode(data_entry_verify, self.__check_2)
+        elif data_entry_verify != data_entry_1:
+            upload_image('invalido.png')
+            self.__button_verify.configure(image=self.__WINDOW.button_image)
+
+    def __object_screen(self) -> None:
