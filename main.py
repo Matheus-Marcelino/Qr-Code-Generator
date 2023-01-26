@@ -134,3 +134,10 @@ class App(object):
         cb_clear = Checkbutton(self.__WINDOW, bg=self.__COLOR_BASIC,
                                variable=self.__check_2, onvalue=1, offvalue=0)
         cb_clear.place(x=100, y=260)
+
+        # setando o botão de copiar
+        configurate_image()
+        button_copy = Button(self.__WINDOW, image=self.__WINDOW.button_copy_normal,
+                             bg=self.__COLOR_BASIC, activebackground=self.__COLOR_BASIC,
+                             bd=0, relief=SUNKEN, command=transfer_text)
+        button_copy.place(x=205, y=180)
