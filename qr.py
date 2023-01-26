@@ -4,7 +4,12 @@ from os import mkdir
 
 
 def creat_qrcode(text: str, check: int) -> None:
-    """Cria o Qr code"""
+    """Cria o Qr Code
+
+    Args:
+        text (str): Texto que será inserido do Qr Code
+        check (int): 1 -> mostra a imagem na tela
+    """
     qr = QRCode()
     qr.add_data(text)
 
