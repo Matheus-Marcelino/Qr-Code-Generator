@@ -1,3 +1,5 @@
+from qr import creat_qrcode
+from PIL import Image, ImageTk
 from os.path import dirname, realpath
 from tkinter import (Tk, TclError, IntVar, PhotoImage, FALSE, END,
                      SUNKEN, Button, Entry, CHECKBUTTON, Label)
@@ -47,3 +49,14 @@ class App(object):
         # Carregando icon da janela
         self.__WINDOW.call('wm', 'iconphoto', self.__WINDOW._w,
                            PhotoImage(file='icon/qr.png'))
+
+    def __verify(self) -> None:
+        def upload_image(image: str) -> None:
+            self.__WINDOW.button_image = ImageTk.PhotoImage(
+                Image.open(f'{self.__path_image}' + f'/ {image}'.replace(' ', ''))) # Carrega a imagem desejada
+            if image == 'sucesso.png':
+                self.__title['fg'] = 'green'
+                self.__button_verify.place(x=197, y=298)
+            else:
+                self.__title['fg'] = 'red'
+                self.__button_verify.place(x=198, y=298)
