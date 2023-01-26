@@ -80,4 +80,15 @@ class App(object):
             clear_entry()
 
     def __object_screen(self) -> None:
-        pass
+        def configurate_image() -> None:
+            self.__WINDOW.button_verify_image_lower = ImageTk.PhotoImage(Image.open(
+                f"{self.__path_image}" + "/verify.png".replace(' ', '')))
+
+            self.__WINDOW.button_verify_image_upper = ImageTk.PhotoImage(Image.open(
+                f"{self.__path_image}" + "/verify_handler.png"))
+
+            self.__WINDOW.button_copy_upper = ImageTk.PhotoImage(Image.open(
+                f'{self.__path_image}' + '/button_copy_upper.png'))
+
+            self.__WINDOW.button_copy_normal = ImageTk.PhotoImage(Image.open(
+                f'{self.__path_image}' + '/button_copy_normal.png'))
