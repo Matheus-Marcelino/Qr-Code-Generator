@@ -2,7 +2,7 @@ from qr import creat_qrcode
 from PIL import Image, ImageTk
 from os.path import dirname, realpath
 from tkinter import (Tk, TclError, IntVar, PhotoImage, FALSE, END,
-                     SUNKEN, Button, Entry, CHECKBUTTON, Label)
+                     SUNKEN, Button, Entry, Checkbutton, Label)
 from tkinter.messagebox import showerror
 
 
@@ -119,3 +119,18 @@ class App(object):
         self.__text_verify = Entry(self.__WINDOW, bg='white',
                                    fg='black', width=50)
         self.__text_verify.place(x=100, y=220)
+
+        # configuração das Checkboxs e dos seus Labels
+        lb_cb_visu = Label(self.__WINDOW, text='Visualização do Qr Code',
+                           fg='white', bg=self.__COLOR_BASIC)
+        lb_cb_visu.place(x=270, y=263)
+        cb_visualization = Checkbutton(self.__WINDOW, bg=self.__COLOR_BASIC,
+                                       variable=self.__check, onvalue=1, offvalue=0)
+        cb_visualization.place(x=245, y=260)
+
+        lb_cb_clear = Label(self.__WINDOW, text='Clear on enter',
+                            fg='white', bg=self.__COLOR_BASIC)
+        lb_cb_clear.place(x=125, y=262)
+        cb_clear = Checkbutton(self.__WINDOW, bg=self.__COLOR_BASIC,
+                               variable=self.__check_2, onvalue=1, offvalue=0)
+        cb_clear.place(x=100, y=260)
