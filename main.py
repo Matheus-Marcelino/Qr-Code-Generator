@@ -71,9 +71,13 @@ class App(object):
         if data_entry_verify == data_entry_1 and data_entry_verify != '':
             upload_image('sucesso.png')
             self.__button_verify.configure(image=self.__WINDOW.button_image)
-            creat_qrcode(data_entry_verify, self.__check_2)
+            creat_qrcode(data_entry_verify, self.__check)
         elif data_entry_verify != data_entry_1:
             upload_image('invalido.png')
             self.__button_verify.configure(image=self.__WINDOW.button_image)
 
+        if self.__check_2 == 1:
+            clear_entry()
+
     def __object_screen(self) -> None:
+        pass
