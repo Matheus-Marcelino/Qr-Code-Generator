@@ -16,3 +16,7 @@ def creat_qrcode(text: str, check: int) -> None:
     except FileNotFoundError:
         mkdir('output')
         creat_qrcode(text)
+
+
+if __name__ == '__main__':
+    creat_qrcode('Test', 1)
