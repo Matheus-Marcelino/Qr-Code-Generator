@@ -1,4 +1,3 @@
-from os import mkdir
 from os.path import dirname, realpath
 from tkinter import (Tk, TclError, IntVar, PhotoImage, FALSE, END,
                      SUNKEN, Button, Entry, CHECKBUTTON, Label)
