@@ -1,7 +1,10 @@
+"""Criador de Qr Code"""
 from qrcode.main import QRCode
 from os import mkdir
 
+
 def creat_qrcode(text: str, check: int) -> None:
+    """Cria o Qr code"""
     qr = QRCode()
     qr.add_data(text)
 
@@ -9,7 +12,7 @@ def creat_qrcode(text: str, check: int) -> None:
     try:
         im.save(f'output/placa-{text}.png')
         if check == 1:
-            im.show()
+            im.show()  # mostra o Qr code na tela
     except FileNotFoundError:
         mkdir('output')
         creat_qrcode(text)
