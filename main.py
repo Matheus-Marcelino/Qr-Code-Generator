@@ -105,3 +105,8 @@ class App(object):
         def on_leave(button: Button, image: any, x: int, y: int) -> None:
             button.config(image=image)
             button.place(x=x, y=y)
+
+        # titulo do programa
+        self.__title = Label(self.__WINDOW, text='Gerador de Qr Code', fg='white',
+                             bg=self.__COLOR_BASIC, font=f'{self.__FONT_BASIC} 15 bold')
+        self.__title.place(x=160, y=50)
