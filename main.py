@@ -60,3 +60,9 @@ class App(object):
             else:
                 self.__title['fg'] = 'red'
                 self.__button_verify.place(x=198, y=298)
+        
+        def clear_entry() -> None:
+            self.__text_entry.delete(0, END)
+            self.__text_verify.delete(0, END)
+            
+            
