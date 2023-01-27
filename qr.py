@@ -1,6 +1,8 @@
 """Criador de Qr Code"""
-from qrcode.main import QRCode
 from os import mkdir
+from os.path import dirname, realpath
+from webbrowser import open
+from qrcode.main import QRCode
 
 
 def creat_qrcode(text: str, check: int) -> None:
@@ -13,11 +15,14 @@ def creat_qrcode(text: str, check: int) -> None:
     qr = QRCode()
     qr.add_data(text)
 
+    text: str = text + '.png'
+    FILE: str = dirname(realpath(__file__)) + '/output/'
+
     im = qr.make_image()
     try:
-        im.save(f'output/{text}.png')
+        im.save(f'output/{text}')
         if check == 1:
-            im.show()  # mostra o Qr code na tela
+            open(FILE+text)  # mostra o Qr code na tela
     except FileNotFoundError:
         mkdir('output')
         creat_qrcode(text)
